@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\VehiclesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +22,5 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [VehicleController::class, 'index']);
-Route::post('/store', [VehicleController::class, 'store'])->name('store');
+Route::get('/', [VehiclesController::class, 'index']);
+Route::post('/store', [VehiclesController::class, 'store'])->name('store');

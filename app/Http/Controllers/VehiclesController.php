@@ -7,7 +7,7 @@ use App\Models\Vehicle;
 use App\Http\Controllers\Vehicles;
 use CreateVehiclesTable;
 
-class VehicleController extends Controller
+class VehiclesController extends Controller
 {
     public function index()
     {
