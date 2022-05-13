@@ -11,22 +11,29 @@ class VehicleController extends Controller
         return view('index');
     }
 
-    // Handle inert
+    // Handle insert
 
     public function store(Request $request)
     {
-        $file = $request->file('image');
-        $filename = time(). '.' .$file->getClientOriginalExtension();
-        $file->storeAs('public/images', $filename);
+        print_r($_POST);
+        print_r($_FILES);
+        // }
 
-        $vehData = [
-            'make' => $request->make,
-            'model_name' => $request->model_name,
-            'version' => $request->version,
-            'powertrain' => $request->powertrain,
-            'fuel' => $request->fuel,
-            'model_year' => $request->model_year,
-            'image' => $filename
-        ];
+
+        // $file = $request->file('image');
+        // $filename = time(). '.' .$file->getClientOriginalExtension();
+        // $file->storeAs('public/images', $filename);
+
+
+        // // handle insert vehicle ajax request
+        // $vehData = [
+        //     'make' => $request->make,
+        //     'model_name' => $request->model_name,
+        //     'version' => $request->version,
+        //     'powertrain' => $request->powertrain,
+        //     'fuel' => $request->fuel,
+        //     'model_year' => $request->model_year,
+        //     'image' => $filename
+        // ];
     }
 };

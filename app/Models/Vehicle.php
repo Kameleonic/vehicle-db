@@ -15,8 +15,7 @@ class Vehicle extends Model
         'powertrain',
         'fuel',
         'model_year',
-        'image',
-        'created_at',
+        'image'
 
-    ]
+    ];
 }

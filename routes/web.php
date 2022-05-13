@@ -23,4 +23,4 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [VehicleController::class, 'index']);
-Route::put('/store', [VehicleController::class, 'store'])->name('store');
+Route::post('/store', [VehicleController::class, 'store'])->name('store');

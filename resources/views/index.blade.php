@@ -23,39 +23,6 @@
         <title>CRUD Application made using Laravel 8</title>
     </head>
     <body>
-        <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"
-        ></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            $("#add_vehicle_form").submit(function (e) {
-                e.preventDefault();
-                const fs = new FormData(this);
-                $("#add_vehicle_btn").text("Processing...");
-                $.ajax({
-                    url: '{{ route('store') }}',
-                    method: 'put',
-                    data: fd,
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    success: function(res){
-                        console.log(res);
-                    }
-                });
-            });
-        </script>
 
         {{-- add new vehicle modal start --}}
         <div
@@ -81,7 +48,7 @@
                     </div>
                     <form
                         action="#"
-                        method="PUT"
+                        method="POST"
                         id="add_vehicle_form"
                         enctype="multipart/form-data"
                     >
@@ -99,10 +66,10 @@
                                     />
                                 </div>
                                 <div class="col-lg">
-                                    <label for="modelname">Model</label>
+                                    <label for="model_name">Model</label>
                                     <input
                                         type="text"
-                                        name="modelname"
+                                        name="model_name"
                                         class="form-control"
                                         placeholder="Modal name..."
                                         required
@@ -130,10 +97,10 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="modelyear">Model Year</label>
+                                <label for="model_year">Model Year</label>
                                 <input
                                     type="text"
-                                    name="modelyear"
+                                    name="model_yearyear"
                                     class="form-control"
                                     placeholder="eg.2022.25..."
                                     required
@@ -322,5 +289,43 @@
                 </div>
             </div>
         </div>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"
+        ></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+        // add new vehicle ajax request
+            $("#add_vehicle_form").submit(function (e) {
+                e.preventDefault();
+                const fd = new FormData(this);
+                $("#add_vehicle_btn").text("Processing...");
+                $.ajax({
+                    url: '{{ route('store') }}',
+                    method: 'post',
+                    data: fd,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success:function(res) {
+                        console.log(res);
+                    }
+                });
+            })
+        </script>
+        <script>
+
+
+        </script>
     </body>
 </html>
