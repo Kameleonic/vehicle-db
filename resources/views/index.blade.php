@@ -19,10 +19,13 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
         />
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>CRUD Application made using Laravel 8</title>
     </head>
     <body>
+        <input type="hidden" name="csrf-token" value="CIwNZNlR4XbisJF39I8yWnWX9wX4WFoz" />
 
         {{-- add new vehicle modal start --}}
         <div
@@ -53,6 +56,7 @@
                         enctype="multipart/form-data"
                     >
                         @csrf
+
                         <div class="modal-body p-4 bg-light">
                             <div class="row">
                                 <div class="col-lg">
@@ -162,7 +166,7 @@
                     </div>
                     <form
                         action="#"
-                        method="PUT"
+                        method="POST"
                         id="edit_vehicle_form"
                         enctype="multipart/form-data"
                     >
@@ -324,8 +328,6 @@
             })
         </script>
         <script>
-
-
         </script>
     </body>
 </html>

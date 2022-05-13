@@ -18,4 +18,4 @@ class Vehicle extends Model
         'image'
 
     ];
-}
+};
