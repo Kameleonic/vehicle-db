@@ -20,13 +20,11 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
         />
         <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <title>CRUD Application made using Laravel 8</title>
     </head>
     <body>
-        <input type="hidden" name="csrf-token" value="CIwNZNlR4XbisJF39I8yWnWX9wX4WFoz" />
-
         {{-- add new vehicle modal start --}}
         <div
             class="modal fade"
@@ -75,7 +73,7 @@
                                         type="text"
                                         name="model_name"
                                         class="form-control"
-                                        placeholder="Modal name..."
+                                        placeholder="Model name..."
                                         required
                                     />
                                 </div>
@@ -104,7 +102,7 @@
                                 <label for="model_year">Model Year</label>
                                 <input
                                     type="text"
-                                    name="model_yearyear"
+                                    name="model_year"
                                     class="form-control"
                                     placeholder="eg.2022.25..."
                                     required
@@ -171,79 +169,75 @@
                         enctype="multipart/form-data"
                     >
                         @csrf
-                        <input type="hidden" name="emp_id" id="emp_id" />
-                        <input
-                            type="hidden"
-                            name="emp_avatar"
-                            id="emp_avatar"
-                        />
+                        <input type="hidden" name="veh_id" id="veh_id" />
+                        <input type="hidden" name="veh_image" id="veh_image" />
                         <div class="modal-body p-4 bg-light">
                             <div class="row">
                                 <div class="col-lg">
-                                    <label for="fname">First Name</label>
+                                    <label for="make">First Name</label>
                                     <input
                                         type="text"
-                                        name="fname"
-                                        id="fname"
+                                        name="make"
+                                        id="make"
                                         class="form-control"
-                                        placeholder="First Name"
+                                        placeholder="Make"
                                         required
                                     />
                                 </div>
                                 <div class="col-lg">
-                                    <label for="lname">Last Name</label>
+                                    <label for="model_name">Last Name</label>
                                     <input
                                         type="text"
-                                        name="lname"
-                                        id="lname"
+                                        name="model_name"
+                                        id="model_name"
                                         class="form-control"
-                                        placeholder="Last Name"
+                                        placeholder="Model Name"
                                         required
                                     />
                                 </div>
                             </div>
                             <div class="my-2">
-                                <label for="email">E-mail</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    class="form-control"
-                                    placeholder="E-mail"
-                                    required
-                                />
-                            </div>
-                            <div class="my-2">
-                                <label for="phone">Phone</label>
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    id="phone"
-                                    class="form-control"
-                                    placeholder="Phone"
-                                    required
-                                />
-                            </div>
-                            <div class="my-2">
-                                <label for="post">Post</label>
+                                <label for="version">E-mail</label>
                                 <input
                                     type="text"
-                                    name="post"
-                                    id="put"
+                                    name="version"
+                                    id="version"
                                     class="form-control"
-                                    placeholder="put"
+                                    placeholder="Version"
                                     required
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="avatar">Select Avatar</label>
+                                <label for="powertrain">Phone</label>
+                                <input
+                                    type="text"
+                                    name="powertrain"
+                                    id="powertrain"
+                                    class="form-control"
+                                    placeholder="Powertrain"
+                                    required
+                                />
+                            </div>
+                            <div class="my-2">
+                                <label for="model_year">Post</label>
+                                <input
+                                    type="text"
+                                    name="model_year"
+                                    id="model_year"
+                                    class="form-control"
+                                    placeholder="e.i.2022.50..."
+                                    required
+                                />
+                            </div>
+                            <div class="my-2">
+                                <label for="image">Select Avatar</label>
                                 <input
                                     type="file"
-                                    name="avatar"
+                                    name="image"
                                     class="form-control"
                                 />
                             </div>
-                            <div class="mt-2" id="avatar"></div>
+                            <div class="mt-2" id="image"></div>
                         </div>
                         <div class="modal-footer">
                             <button
@@ -309,25 +303,26 @@
         ></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-        // add new vehicle ajax request
+            // add new vehicle ajax request
             $("#add_vehicle_form").submit(function (e) {
                 e.preventDefault();
                 const fd = new FormData(this);
                 $("#add_vehicle_btn").text("Processing...");
                 $.ajax({
-                    url: '{{ route('store') }}',
-                    method: 'post',
+                    url: '{{route("store")}}',
+                    method: "POST",
                     data: fd,
                     cache: false,
                     processData: false,
                     contentType: false,
-                    success:function(res) {
+                    success: function (res) {
                         console.log(res);
-                    }
+                    },
                 });
-            })
+            });
         </script>
         <script>
+            $("#show_all_vehicles");
         </script>
     </body>
 </html>

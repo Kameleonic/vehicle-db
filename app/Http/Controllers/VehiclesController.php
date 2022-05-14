@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
-use App\Http\Controllers\Vehicles;
-use CreateVehiclesTable;
+use App\Http\Controllers;
+use Illuminate\Database\Migrations\CreateVehiclesTable;
 
 class VehiclesController extends Controller
 {
@@ -28,8 +28,9 @@ class VehiclesController extends Controller
         $file->storeAs('public/images', $filename);
 
 
+
         // handle insert vehicle ajax request
-        $vehData = [
+        $tbl_vehicles = [
             'make' => $request->make,
             'model_name' => $request->model_name,
             'version' => $request->version,
@@ -39,9 +40,11 @@ class VehiclesController extends Controller
             'image' => $filename
         ];
 
-        Vehicle::create($vehData);
-        return response()->json([
+        VehiclesController::create($tbl_vehicles);
+        return response()->json(
+            [
             'status' => 200
-        ]);
+            ]
+        );
     }
 }
