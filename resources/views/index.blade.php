@@ -89,6 +89,17 @@
                                 />
                             </div>
                             <div class="my-2">
+                                <label for="fuel">Fuel Type</label>
+                                <input
+                                    type="text"
+                                    name="fuel"
+                                    id="fuel"
+                                    class="form-control"
+                                    placeholder=""
+                                    required
+                                />
+                            </div>
+                            <div class="my-2">
                                 <label for="powertrain">Powertrain</label>
                                 <input
                                     type="text"
@@ -204,6 +215,17 @@
                                     id="version"
                                     class="form-control"
                                     placeholder="Version"
+                                    required
+                                />
+                            </div>
+                            <div class="my-2">
+                                <label for="fuel">E-mail</label>
+                                <input
+                                    type="text"
+                                    name="fuel"
+                                    id="fuel"
+                                    class="form-control"
+                                    placeholder="Fuel Type"
                                     required
                                 />
                             </div>

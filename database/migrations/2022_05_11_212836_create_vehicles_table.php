@@ -26,6 +26,7 @@ class CreateVehiclesTable extends Migration
                 $table->year('model_year');
                 $table->string('image')->nullable();
                 $table->timestamp('created_at')->nullable();
+                $table->timestamp('updated_at')->nullable();
             }
         );
     }

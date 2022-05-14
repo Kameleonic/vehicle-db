@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     use HasFactory; /**  Name of columns fillable */
-    public $timestamps = false;
     protected $table = 'vehicles';
     protected $fillable = [
         'make',
@@ -17,7 +16,8 @@ class Vehicle extends Model
         'powertrain',
         'fuel',
         'model_year',
-        'image'
+        'image',
+        'created_at'
 
     ];
 };
