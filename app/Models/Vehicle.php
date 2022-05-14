@@ -9,7 +9,7 @@ class Vehicle extends Model
 {
     use HasFactory; /**  Name of columns fillable */
     public $timestamps = false;
-    protected $table = 'tbl_vehicles';
+    protected $table = 'vehicles';
     protected $fillable = [
         'make',
         'model_name',
@@ -17,8 +17,7 @@ class Vehicle extends Model
         'powertrain',
         'fuel',
         'model_year',
-        'image',
-        'created_at'
+        'image'
 
     ];
 };

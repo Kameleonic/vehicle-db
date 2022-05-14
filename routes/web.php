@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/', [VehiclesController::class, 'index']);
-Route::post('/store', [VehiclesController::class, 'store'])->name('store');
+Route::controller(VehiclesController::class)->group(
+    function () {
+        Route::get('/', 'index');
+        Route::post('/store', 'store')->name('store');
+    }
+);

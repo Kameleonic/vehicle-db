@@ -309,7 +309,7 @@
                 const fd = new FormData(this);
                 $("#add_vehicle_btn").text("Processing...");
                 $.ajax({
-                    url: '{{route("store")}}',
+                    url: "{{route("store")}}",
                     method: "POST",
                     data: fd,
                     cache: false,
@@ -318,7 +318,7 @@
                     success: function (res) {
                         console.log(res);
                     },
-                });
+                })
             });
         </script>
         <script>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
-use App\Http\Controllers;
+use Illuminate\Http\Controllers;
 use Illuminate\Database\Migrations\CreateVehiclesTable;
 
 class VehiclesController extends Controller
@@ -14,7 +14,7 @@ class VehiclesController extends Controller
         return view('index');
     }
 
-    // Handle insert
+    /** Handle insert */
 
     public function store(Request $request)
     {
@@ -30,7 +30,8 @@ class VehiclesController extends Controller
 
 
         // handle insert vehicle ajax request
-        $tbl_vehicles = [
+        $vehicle = Vehicle::create(
+            [
             'make' => $request->make,
             'model_name' => $request->model_name,
             'version' => $request->version,
@@ -38,13 +39,9 @@ class VehiclesController extends Controller
             'fuel' => $request->fuel,
             'model_year' => $request->model_year,
             'image' => $filename
-        ];
-
-        VehiclesController::create($tbl_vehicles);
-        return response()->json(
-            [
-            'status' => 200
             ]
         );
+
+        return response()->json($vehicle);
     }
 }
