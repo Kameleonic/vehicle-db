@@ -338,7 +338,18 @@
                     processData: false,
                     contentType: false,
                     success: function (res) {
+                        if (res) {
+                            Swal.fire(
+                            'Added',
+                            'Vehicle Added Successfully.',
+                            'success'
+                            )
+                        }
+                        $("#add_vehicle_btn").text('Add Vehicle');
+                        $("#add_vehicle_form");
+                        $("#addVehicleModal").modal('hide');
                         console.log(res);
+
                     },
                 })
             });
