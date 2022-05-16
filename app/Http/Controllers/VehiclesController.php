@@ -44,4 +44,12 @@ class VehiclesController extends Controller
 
         return response()->json($vehicle);
     }
+
+    // FETCH ALL AJAX REQUEST
+
+    // public function fetchAll()
+    // {
+    //     $vehs = Vehicle::all();
+    //     print_r($vehs)
+    // }
 }

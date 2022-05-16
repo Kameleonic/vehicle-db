@@ -1,9 +1,15 @@
+/* @font-face {
+    font-family: "Roboto" !important;
+    src: url("./fonts/Roboto-Black.ttf") format("ttf");
+} */
+
 body {
-    background-color: rgb(232, 232, 232);
+    /* font-family: "Roboto" !important; */
+    background-color: rgba(255, 240, 103, 0.692);
 }
 
 .bg-primary {
-    background-color: rgba(131, 191, 237, 1) !important;
+    background-color: rgb(114, 94, 243) !important;
 }
 
 .btn-dark {
@@ -20,8 +26,21 @@ body {
     color: rgb(63, 63, 63);
 }
 .border-dark {
-    border-color: rgba(0, 0, 0, 0.374) !important;
+    border-color: rgb(80, 66, 171, 0.7) !important;
 }
 .btn-border-dark {
     border-color: rgba(0, 0, 0, 0.226) !important;
+}
+
+.card-body {
+    background-color: rgb(193, 206, 255) !important;
+}
+.card {
+}
+.thick-border {
+    border: 3px solid black !important;
+}
+
+.new-shad {
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important;
 }

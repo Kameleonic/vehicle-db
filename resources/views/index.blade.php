@@ -301,8 +301,7 @@
         <div class="container">
             <div class="row my-5">
                 <div class="col-lg-12">
-                    <div class="card shadow border-dark
-                ">
+                    <div class="card new-shad border-dark">
                         <div
                             class="card-header bg-primary d-flex justify-content-between align-items-center"
                         >
@@ -369,10 +368,7 @@
                         console.log(res);
 
                     },
-                })
-        </script>
-        <script>
-            $("#show_all_vehicles");
+                });
         </script>
     </body>
 </html>
