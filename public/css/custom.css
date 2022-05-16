@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(232, 232, 232);
+}
+
+.bg-primary {
+    background-color: rgba(131, 191, 237, 1) !important;
+}
+
+.btn-dark {
+    background-color: rgba(131, 155, 185, 1);
+}
+.btn-dark:hover {
+    background-color: rgb(110, 131, 157);
+}
+.btn-dark:focus {
+    background-color: rgb(160, 172, 187);
+}
+
+.text-grey {
+    color: rgb(63, 63, 63);
+}
+.border-dark {
+    border-color: rgba(0, 0, 0, 0.374) !important;
+}
+.btn-border-dark {
+    border-color: rgba(0, 0, 0, 0.226) !important;
+}

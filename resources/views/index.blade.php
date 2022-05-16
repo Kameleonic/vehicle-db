@@ -19,12 +19,27 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
         />
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 
         <title>CRUD Application made using Laravel 8</title>
     </head>
     <body>
+        <div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h4 class="text-white">Collapsed content</h4>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-primary p-2">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
         {{-- add new vehicle modal start --}}
         <div
             class="modal fade"
@@ -34,9 +49,9 @@
             data-bs-backdrop="static"
             aria-hidden="true"
         >
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog  modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-primary">
                         <h5 class="modal-title" id="exampleModalLabel">
                             Add New Vehicle
                         </h5>
@@ -129,7 +144,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer bg-primary">
                             <button
                                 type="button"
                                 class="btn btn-secondary"
@@ -286,20 +301,23 @@
         <div class="container">
             <div class="row my-5">
                 <div class="col-lg-12">
-                    <div class="card shadow">
+                    <div class="card shadow border-dark
+                ">
                         <div
-                            class="card-header bg-danger d-flex justify-content-between align-items-center"
+                            class="card-header bg-primary d-flex justify-content-between align-items-center"
                         >
-                            <h3 class="text-light">Manage Vehicles</h3>
+                            <h3 class="text-grey">Manage Vehicles</h3>
                             <button
-                                class="btn btn-light"
+                                type="button"
+                                class="btn btn-dark btn-border-dark"
                                 data-bs-toggle="modal"
                                 data-bs-target="#addVehicleModal"
                             >
-                                <i class="bi-plus-circle me-2"></i>Add New
+                                <i class="bi-plus-circle me-2 "></i>Add New
                                 Vehicle
                             </button>
                         </div>
+
                         <div class="card-body" id="show_all_vehicles">
                             <h1 class="text-center text-secondary my-5">
                                 Loading vehicles...
@@ -352,7 +370,6 @@
 
                     },
                 })
-            });
         </script>
         <script>
             $("#show_all_vehicles");
