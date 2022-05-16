@@ -47,9 +47,44 @@ class VehiclesController extends Controller
 
     // FETCH ALL AJAX REQUEST
 
-    // public function fetchAll()
-    // {
-    //     $vehs = Vehicle::all();
-    //     print_r($vehs)
-    // }
+    public function fetchAll()
+    {
+        $vehicles = Vehicle::all(); //Could be model or controller...
+        $output = '';
+        if ($vehicles->count() > 0) {
+            $output .= '<table class="table table-striped table-sm text-center align-middle" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Derivative</th>
+                        <th>Fuel Type</th>
+                        <th>Model Year</th>
+                    </tr>
+                </thead>
+                <tbody>';
+            foreach ($vehicles as $vehicle) {
+                $output .= '<tr>
+                    <td>'.$vehicle->id.'</td>
+                    <td><img src="./storage/images/'.$vehicle->image.'" width="50" class="img-thumbnail rounded-circle"></td>
+                    <td>'.$vehicle->make.'</td>
+                    <td>'.$vehicle->model_name.'</td>
+                    <td>'.$vehicle->version.'</td>
+                    <td>'.$vehicle->fuel.'</td>
+                    <td>'.$vehicle->model_year.'</td>
+                    <td>
+                        <a href="#" id="'.$vehicle->id.'" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="editVehicleModal"><i class="bi-pencil-square h4"></i></a>
+
+                        <a href="#" id="'.$vehicle->id.'" class="text-danger mx-1 delete-icon"><i class-"bi-trash h4"></i></a>
+                    </td>
+                </tr>';
+            }
+            $output .= '</tbody></table>';
+            echo $output;
+        } else {
+            echo '<h1 class="text-center text-secondary my-5">No vehicles in the database!</h1>';
+        }
+    }
 }

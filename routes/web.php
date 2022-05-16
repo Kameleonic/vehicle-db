@@ -27,3 +27,4 @@ Route::controller(VehiclesController::class)->group(
         Route::post('/store', 'store')->name('store');
     }
 );
+Route::get('/fetch-all', [VehiclesController::class, 'fetchAll'])->name('fetchAll');

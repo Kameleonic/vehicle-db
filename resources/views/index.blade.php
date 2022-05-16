@@ -108,7 +108,6 @@
                                 <input
                                     type="text"
                                     name="fuel"
-                                    id="fuel"
                                     class="form-control"
                                     placeholder=""
                                     required
@@ -135,7 +134,7 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="image">Select Image</label>
+                                <label for="img">Select Image</label>
                                 <input
                                     type="file"
                                     name="image"
@@ -267,7 +266,7 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="image">Select Avatar</label>
+                                <label for="img">Select Avatar</label>
                                 <input
                                     type="file"
                                     name="image"
@@ -305,10 +304,10 @@
                         <div
                             class="card-header bg-primary d-flex justify-content-between align-items-center"
                         >
-                            <h3 class="text-grey">Manage Vehicles</h3>
+                            <h3 class="tbl-ttl">Manage Vehicles</h3>
                             <button
                                 type="button"
-                                class="btn btn-dark btn-border-dark"
+                                class="btn btn-dark"
                                 data-bs-toggle="modal"
                                 data-bs-target="#addVehicleModal"
                             >
@@ -342,7 +341,20 @@
         ></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            // add new vehicle ajax request
+
+            // SHOW ALL VEHICLES AJAX REQUEST
+            fetchAllVehicles();
+            function fetchAllVehicles(){
+                $.ajax({
+                    url: "{{route("fetchAll")}}",
+                    method: 'GET',
+                    success: function(res){
+                        $("#show_all_vehicles").html(res);
+                    }
+                })
+            };
+
+            // ADD NEW VEHICLE AJAX REQUEST
             $("#add_vehicle_form").submit(function (e) {
                 e.preventDefault();
                 const fd = new FormData(this);
@@ -367,8 +379,9 @@
                         $("#addVehicleModal").modal('hide');
                         console.log(res);
 
-                    },
-                });
+                    }
+                })
+            })
         </script>
     </body>
 </html>
