@@ -4,10 +4,10 @@
 } */
 
 body {
-    height: 100vh;
+    /* height: 100vh; */ /* For filling the scrollable window height 100%*/
     /* font-family: "Roboto" !important; */
     background-size: contain !important;
-    background-repeat: no-repeat !important;
+    background-repeat: repeat-y !important;
     background: #b993d6; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to right,
@@ -19,6 +19,31 @@ body {
         #8ca6db,
         #b993d6
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#nav-date {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+}
+#nav-time {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+}
+
+.tbl {
+    max-height: 64px !important;
+}
+/* .exp_tbl:target {
+    max-height: 125px !important;
+    height: 125px !important;
+} */
+
+.logo {
+    height: 72px;
+    width: 72px;
+}
+
+.nav-logo {
 }
 
 .h1,
@@ -78,6 +103,7 @@ h6 {
 .card {
     border-radius: 7px;
     border: 3px solid rgba(31, 16, 61, 0.85) !important;
+    margin-bottom: 3rem;
 }
 
 .card-body {
@@ -91,12 +117,21 @@ h6 {
     padding-right: 2.5vw;
 }
 .thick-border {
-    border: 3px solid black !important;
+    border: 2px solid black !important;
 }
 
 .new-shad {
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important;
 }
+
+.navbar {
+    border-bottom: 3px solid rgba(31, 16, 61, 0.85) !important;
+}
+
+.ml-2 {
+    margin-left: 20px;
+}
+
 .img-thumbnail {
     justify-items: center;
     max-width: 100px;
@@ -119,4 +154,8 @@ h6 {
 
 .modal-body {
     background-color: rgba(193, 206, 255, 0.5) !important;
+}
+
+.wd-90 {
+    width: 90vw;
 }

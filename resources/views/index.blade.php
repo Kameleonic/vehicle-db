@@ -28,16 +28,25 @@
     </head>
     <body>
         <div class="pos-f-t">
+
   <div class="collapse" id="navbarToggleExternalContent">
+
     <div class="bg-dark p-4">
       <h4 class="text-white">Collapsed content</h4>
       <span class="text-muted">Toggleable via the navbar brand.</span>
+
     </div>
   </div>
-  <nav class="navbar navbar-light bg-primary p-2">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-light justify-content-center bg-primary p-2">
+
+
+    <div class="d-flex wd-90 justify-content-between">
+        <img src="/storage/assets/logo.png" class="logo nav-logo rounded">
+
+    <h6 id="nav-date" class="h5">{{ date('l\\, d \\of M o') }}</h6>
+    <h6 id="nav-time" class="h5">{{ date('H:m:s') }}</h6>
+    </div>
+
   </nav>
 </div>
         {{-- add new vehicle modal start --}}
@@ -303,7 +312,7 @@
                     <div class="card new-shad border-dark">
                         <div class="card-header bg-primary d-flex justify-content-between align-items-center">
                             <h3 class="tbl-ttl">Manage Vehicles</h3>
-                            <h6 class="bottom fw-light">Todays date is {{ date('D m Y H:i:s') }}</h6>
+
                             <button
                                 type="button"
                                 class="btn btn-dark"
@@ -322,7 +331,7 @@
                             </h1>
 
                         </div>
-                        <div class="card-footer fixed-bottom text-center bg-primary" id="copyright">Copyright © {{ date('Y') }}
+                        <div class="card-footer fixed-bottom text-center bg-primary" id="copyright">Copyright © Kameleonic Design {{ date('Y') }} - All rights reserved.
 
 
 
