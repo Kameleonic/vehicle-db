@@ -4,8 +4,21 @@
 } */
 
 body {
+    height: 100vh;
     /* font-family: "Roboto" !important; */
-    background-color: rgb(255, 240, 103);
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background: #b993d6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #8ca6db,
+        #b993d6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #8ca6db,
+        #b993d6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .h1,
@@ -28,17 +41,18 @@ h6 {
     line-height: 1.75;
 }
 .tbl-ttl {
-    color: rgb(255, 240, 103);
+    color: rgba(31, 16, 61, 0.85);
 }
 
 .bg-primary {
-    background-color: rgb(114, 94, 243) !important;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 
 .btn-dark {
-    border: 2px solid rgb(255, 240, 103);
-    color: rgb(255, 240, 103);
-    background-color: rgba(131, 155, 185, 1);
+    border: 2px solid rgba(50, 26, 97, 0.85);
+    color: #00f2fe;
+
+    background-color: rgb(118, 134, 152);
 }
 .btn-dark:hover {
     background-color: rgb(110, 131, 157);
@@ -57,9 +71,19 @@ h6 {
     border-color: rgba(0, 0, 0, 0.226) !important;
 }
 
+#copyright {
+    font-size: 0.75rem !important;
+}
+
+.card {
+    border-radius: 7px;
+    border: 3px solid rgba(31, 16, 61, 0.85) !important;
+}
+
 .card-body {
-    border: 5px solid rgb(114, 94, 243) !important;
-    background-color: rgb(193, 206, 255) !important;
+    border-radius: 0 0 3px 3px;
+    /* border: 5px solid rgba(31, 16, 61, 0.407) !important; */
+    background-color: rgb(193, 206, 255, 0.5) !important;
 }
 .card-header {
     padding-top: 1rem;
@@ -74,8 +98,10 @@ h6 {
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important;
 }
 .img-thumbnail {
-    width: 64px;
-    height: 64px;
+    justify-items: center;
+    max-width: 100px;
+    width: auto;
+
     max-height: 64px;
     border: none !important;
     background-color: transparent !important;
@@ -89,4 +115,8 @@ h6 {
 .table {
     border-width: 3px !important;
     border-color: rgba(80, 66, 171, 0.702);
+}
+
+.modal-body {
+    background-color: rgba(193, 206, 255, 0.5) !important;
 }

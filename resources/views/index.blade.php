@@ -196,7 +196,7 @@
                         @csrf
                         <input type="hidden" name="veh_id" id="veh_id" />
                         <input type="hidden" name="veh_image" id="veh_image" />
-                        <div class="modal-body p-4 bg-light">
+                        <div class="modal-body p-4">
                             <div class="row">
                                 <div class="col-lg">
                                     <label for="make">First Name</label>
@@ -301,10 +301,9 @@
             <div class="row my-5">
                 <div class="col-lg-12">
                     <div class="card new-shad border-dark">
-                        <div
-                            class="card-header bg-primary d-flex justify-content-between align-items-center"
-                        >
+                        <div class="card-header bg-primary d-flex justify-content-between align-items-center">
                             <h3 class="tbl-ttl">Manage Vehicles</h3>
+                            <h6 class="bottom fw-light">Todays date is {{ date('D m Y H:i:s') }}</h6>
                             <button
                                 type="button"
                                 class="btn btn-dark"
@@ -317,10 +316,20 @@
                         </div>
 
                         <div class="card-body" id="show_all_vehicles">
+
                             <h1 class="text-center text-secondary my-5">
                                 Loading vehicles...
                             </h1>
+
                         </div>
+                        <div class="card-footer fixed-bottom text-center bg-primary" id="copyright">Copyright © {{ date('Y') }}
+
+
+
+                            </h1>
+
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -68,7 +68,7 @@ class VehiclesController extends Controller
             foreach ($vehicles as $vehicle) {
                 $output .= '<tr>
                     <td>'.$vehicle->id.'</td>
-                    <td><img src="./storage/images/'.$vehicle->image.'" width="50" class="img-thumbnail rounded-circle"></td>
+                    <td><img src="./storage/images/'.$vehicle->image.'"  class="img-thumbnail justify-content-sm-center rounded-circle"></td>
                     <td>'.$vehicle->make.'</td>
                     <td>'.$vehicle->model_name.'</td>
                     <td>'.$vehicle->version.'</td>
