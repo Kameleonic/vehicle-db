@@ -2,6 +2,9 @@
     font-family: "Roboto" !important;
     src: url("./fonts/Roboto-Black.ttf") format("ttf");
 } */
+:root {
+    --brand-blue: rgba(31, 16, 61, 0.85);
+}
 
 body {
     /* height: 100vh; */ /* For filling the scrollable window height 100%*/
@@ -22,29 +25,31 @@ body {
 }
 
 #nav-date {
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-}
-#nav-time {
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
+    //
 }
 
-.tbl {
-    max-height: 75px !important;
-    height: 75px !important;
+.nav {
+    display: block;
 }
-/* .exp_tbl:target {
-    max-height: 125px !important;
-    height: 125px !important;
-} */
+
+.logo-hdr {
+    height: 72px;
+    width: 250px;
+}
 
 .logo {
-    height: 72px;
-    width: 72px;
+    width: 36px;
+    height: 36px;
+    z-index: 1;
+    transform: translateY(-10px) !important;
 }
 
 .nav-logo {
+}
+
+li {
+    display: inline;
+    margin: 0 10px 0 10px;
 }
 
 .h1,
@@ -66,8 +71,23 @@ h6 {
     font-weight: 700;
     line-height: 1.75;
 }
+
+.tbl {
+    max-height: 75px !important;
+    height: 75px !important;
+    font-weight: 500;
+}
+/* .exp_tbl:target {
+    max-height: 125px !important;
+    height: 125px !important;
+} */
+
+.tbl-head {
+    color: var(--brand-blue) !important;
+}
+
 .tbl-ttl {
-    color: rgba(31, 16, 61, 0.85);
+    color: var(--brand-blue);
 }
 
 .bg-primary {
@@ -97,13 +117,13 @@ h6 {
     border-color: rgba(0, 0, 0, 0.226) !important;
 }
 
-#copyright {
+.footer-text {
     font-size: 0.75rem !important;
 }
 
 .card {
     border-radius: 7px;
-    border: 3px solid rgba(31, 16, 61, 0.85) !important;
+    border: 3px solid var(--brand-blue) !important;
     margin-bottom: 3rem;
 }
 
@@ -117,6 +137,30 @@ h6 {
     padding-left: 2.5vw;
     padding-right: 2.5vw;
 }
+
+.footer {
+    width: 100vw;
+    height: 3rem;
+    font-size: 0.75rem !important;
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid var(--brand-blue) !important;
+}
+
+.ftr-btn {
+    font-size: large;
+    transform: translate(1400px, -20px) !important;
+    color: var(--brand-blue);
+    transform: scale(2, 2);
+}
+
+#ftr-border {
+    display: flex;
+    width: 100vw !important;
+    height: 3px;
+    background-color: var(--brand-blue);
+}
+
 .thick-border {
     border: 2px solid black !important;
 }

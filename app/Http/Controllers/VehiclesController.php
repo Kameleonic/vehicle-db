@@ -57,15 +57,15 @@ class VehiclesController extends Controller
             $output .= '<table class="table table-striped table-sm text-center align-middle" >
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Derivative</th>
-                        <th>Powertrain</th>
-                        <th>Transmission</th>
-                        <th>Fuel Type</th>
-                        <th>Model Year</th>
+                        <th class="tbl-head">ID</th>
+                        <th class="tbl-head">Image</th>
+                        <th class="tbl-head">Make</th>
+                        <th class="tbl-head">Model</th>
+                        <th class="tbl-head">Derivative</th>
+                        <th class="tbl-head">Powertrain</th>
+                        <th class="tbl-head">Transmission</th>
+                        <th class="tbl-head">Fuel Type</th>
+                        <th class="tbl-head">Model Year</th>
                     </tr>
                 </thead>
                 <tbody>';

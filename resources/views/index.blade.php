@@ -37,18 +37,11 @@
 
     </div>
   </div>
-  <nav class="navbar navbar-light justify-content-center bg-primary p-2">
+  <header class="navbar navbar-light justify-content-center bg-primary p-2">
 
+  @include('includes.header')
 
-    <div class="d-flex wd-90 justify-content-between">
-        <img src="/storage/assets/logo.png" class="logo nav-logo rounded">
-
-    <h6 id="nav-date" class="h5">{{ date('l\\, d \\of M o') }}</h6>
-    <h6 id="nav-time" class="h5">{{ date('H:m:s') }}</h6>
-
-    </div>
-
-  </nav>
+  </header>
 </div>
         {{-- add new vehicle modal start --}}
         <div
@@ -345,21 +338,16 @@
                                 Vehicle
                             </button>
                         </div>
-
                         <div class="card-body" id="show_all_vehicles">
 
                             <h1 class="text-center text-secondary my-5">
                                 Loading vehicles...
                             </h1>
-
                         </div>
-                        <div class="card-footer fixed-bottom text-center bg-primary" id="copyright">Copyright © Kameleonic Design {{ date('Y') }} - All rights reserved.
+
+                        @include('includes.footer')
 
 
-
-                            </h1>
-
-                        </div>
 
                     </div>
                 </div>
