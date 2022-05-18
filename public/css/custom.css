@@ -117,10 +117,6 @@ h6 {
     border-color: rgba(0, 0, 0, 0.226) !important;
 }
 
-.footer-text {
-    font-size: 0.75rem !important;
-}
-
 .card {
     border-radius: 7px;
     border: 3px solid var(--brand-blue) !important;
@@ -145,6 +141,11 @@ h6 {
     display: flex;
     justify-content: center;
     border-top: 3px solid var(--brand-blue) !important;
+}
+
+.footer-text {
+    margin-top: 5px;
+    font-size: 0.75rem !important;
 }
 
 .ftr-btn {
