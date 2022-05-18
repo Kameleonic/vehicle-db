@@ -31,7 +31,8 @@ body {
 }
 
 .tbl {
-    max-height: 64px !important;
+    max-height: 75px !important;
+    height: 75px !important;
 }
 /* .exp_tbl:target {
     max-height: 125px !important;

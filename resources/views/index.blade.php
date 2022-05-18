@@ -45,6 +45,7 @@
 
     <h6 id="nav-date" class="h5">{{ date('l\\, d \\of M o') }}</h6>
     <h6 id="nav-time" class="h5">{{ date('H:m:s') }}</h6>
+    {{ time() }}
     </div>
 
   </nav>
@@ -109,6 +110,16 @@
                                     name="version"
                                     class="form-control"
                                     placeholder="Model derivative..."
+                                    required
+                                />
+                            </div>
+                            <div class="my-2">
+                                <label for="trans">Transmission</label>
+                                <input
+                                    type="text"
+                                    name="trans"
+                                    class="form-control"
+                                    placeholder="Manual..Auto.."
                                     required
                                 />
                             </div>
@@ -208,7 +219,7 @@
                         <div class="modal-body p-4">
                             <div class="row">
                                 <div class="col-lg">
-                                    <label for="make">First Name</label>
+                                    <label for="make">Make</label>
                                     <input
                                         type="text"
                                         name="make"
@@ -219,7 +230,7 @@
                                     />
                                 </div>
                                 <div class="col-lg">
-                                    <label for="model_name">Last Name</label>
+                                    <label for="model_name">Model</label>
                                     <input
                                         type="text"
                                         name="model_name"
@@ -231,7 +242,7 @@
                                 </div>
                             </div>
                             <div class="my-2">
-                                <label for="version">E-mail</label>
+                                <label for="version">Version</label>
                                 <input
                                     type="text"
                                     name="version"
@@ -242,7 +253,18 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="fuel">E-mail</label>
+                                <label for="trans">Transmission</label>
+                                <input
+                                    type="text"
+                                    name="trans"
+                                    id="trans"
+                                    class="form-control"
+                                    placeholder="Auto..Manual.."
+                                    required
+                                />
+                            </div>
+                            <div class="my-2">
+                                <label for="fuel">Fuel</label>
                                 <input
                                     type="text"
                                     name="fuel"
@@ -253,7 +275,7 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="powertrain">Phone</label>
+                                <label for="powertrain">Powertrain</label>
                                 <input
                                     type="text"
                                     name="powertrain"
@@ -264,7 +286,7 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="model_year">Post</label>
+                                <label for="model_year">Model Year</label>
                                 <input
                                     type="text"
                                     name="model_year"
@@ -275,7 +297,7 @@
                                 />
                             </div>
                             <div class="my-2">
-                                <label for="img">Select Avatar</label>
+                                <label for="img">Image</label>
                                 <input
                                     type="file"
                                     name="image"

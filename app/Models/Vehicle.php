@@ -14,7 +14,7 @@ class Vehicle extends Model
         'model_name',
         'version',
         'powertrain',
-        ''
+        'trans',
         'fuel',
         'model_year',
         'image',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
 use Illuminate\Http\Controllers;
@@ -36,6 +37,7 @@ class VehiclesController extends Controller
             'model_name' => $request->model_name,
             'version' => $request->version,
             'powertrain' => $request->powertrain,
+            'trans' => $request->trans,
             'fuel' => $request->fuel,
             'model_year' => $request->model_year,
             'image' => $filename
@@ -60,6 +62,8 @@ class VehiclesController extends Controller
                         <th>Make</th>
                         <th>Model</th>
                         <th>Derivative</th>
+                        <th>Powertrain</th>
+                        <th>Transmission</th>
                         <th>Fuel Type</th>
                         <th>Model Year</th>
                     </tr>
@@ -72,6 +76,8 @@ class VehiclesController extends Controller
                     <td>'.$vehicle->make.'</td>
                     <td>'.$vehicle->model_name.'</td>
                     <td>'.$vehicle->version.'</td>
+                    <td>'.$vehicle->powertrain.'</td>
+                    <td>'.$vehicle->trans.'</td>
                     <td>'.$vehicle->fuel.'</td>
                     <td>'.$vehicle->model_year.'</td>
                     <td>
@@ -86,5 +92,10 @@ class VehiclesController extends Controller
         } else {
             echo '<h1 class="text-center text-secondary my-5">No vehicles in the database!</h1>';
         }
+    }
+
+    public function time($time)
+    {
+        $time->Carbon::now();
     }
 }
