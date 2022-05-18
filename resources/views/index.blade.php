@@ -24,7 +24,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
-        <title>CRUD Application made using Laravel 8</title>
+        <title>Vehicle Database</title>
     </head>
     <body>
         <div class="pos-f-t">
