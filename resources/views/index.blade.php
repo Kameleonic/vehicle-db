@@ -45,7 +45,7 @@
 
     <h6 id="nav-date" class="h5">{{ date('l\\, d \\of M o') }}</h6>
     <h6 id="nav-time" class="h5">{{ date('H:m:s') }}</h6>
-    {{ time() }}
+
     </div>
 
   </nav>
