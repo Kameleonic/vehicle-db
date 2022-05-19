@@ -17,8 +17,7 @@ class Vehicle extends Model
         'trans',
         'fuel',
         'model_year',
-        'image',
-        'created_at'
+        'image'
 
     ];
 };

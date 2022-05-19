@@ -405,11 +405,14 @@
                         $("#add_vehicle_btn").text('Add Vehicle');
                         $("#add_vehicle_form");
                         $("#addVehicleModal").modal('hide');
+                        setInterval('location.reload()', 1000);
                         console.log(res);
 
                     }
                 })
             })
+
+
         </script>
     </body>
 </html>

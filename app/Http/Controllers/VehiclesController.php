@@ -51,13 +51,15 @@ class VehiclesController extends Controller
 
     public function fetchAll()
     {
-        $vehicles = Vehicle::all(); //Could be model or controller...
+        $vehicles = Vehicle::paginate(10); //Could be model or controller...
+        // <th class="tbl-head">ID</th>
+        // <td>'.$vehicle->id.'</td>
         $output = '';
         if ($vehicles->count() > 0) {
             $output .= '<table class="table table-striped table-sm text-center align-middle" >
                 <thead>
                     <tr>
-                        <th class="tbl-head">ID</th>
+
                         <th class="tbl-head">Image</th>
                         <th class="tbl-head">Make</th>
                         <th class="tbl-head">Model</th>
@@ -71,8 +73,8 @@ class VehiclesController extends Controller
                 <tbody>';
             foreach ($vehicles as $vehicle) {
                 $output .= '<tr class="tbl exp_tbl">
-                    <td>'.$vehicle->id.'</td>
-                    <td><img src="./storage/images/'.$vehicle->image.'"  class="img-thumbnail justify-content-sm-center rounded-circle"></td>
+
+                    <td><img src="./storage/images/'.$vehicle->image.'"  class="img-thumbnail justify-content-sm-center"></td>
                     <td>'.$vehicle->make.'</td>
                     <td>'.$vehicle->model_name.'</td>
                     <td>'.$vehicle->version.'</td>
