@@ -148,9 +148,14 @@ h6 {
     font-size: 0.75rem !important;
 }
 
-.ftr-btn {
+.ftr-button {
+    color: var(--brand-blue);
+}
+
+.ftr-xpand {
     font-size: large;
-    transform: translate(1400px, -20px) !important;
+    font-weight: 500;
+    transform: translate(20vw, -40px) !important;
     color: var(--brand-blue);
     transform: scale(2, 2);
 }

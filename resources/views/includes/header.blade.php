@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <div class="d-flex wd-90 justify-content-between">
     <img src="/storage/assets/logo-brand.png" class="logo-hdr nav-logo"/>
 
@@ -12,3 +13,4 @@
     </nav>
 
 </div>
+</html>
