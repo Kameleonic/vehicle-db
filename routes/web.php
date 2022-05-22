@@ -25,6 +25,8 @@ Route::controller(VehiclesController::class)->group(
     function () {
         Route::get('/', 'index');
         Route::post('/store', 'store')->name('store');
+        Route::get('/edit', 'edit')->name('edit');
+        Route::post('/update', 'update')->name('update');
+        Route::get('/fetch-all', 'fetchAll')->name('fetchAll');
     }
 );
-Route::get('/fetch-all', [VehiclesController::class, 'fetchAll'])->name('fetchAll');

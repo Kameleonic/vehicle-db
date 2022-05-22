@@ -31,8 +31,7 @@ class VehiclesController extends Controller
 
 
         // handle insert vehicle ajax request
-        $vehicle = Vehicle::create(
-            [
+        $vehData = [
             'make' => $request->make,
             'model_name' => $request->model_name,
             'version' => $request->version,
@@ -41,10 +40,11 @@ class VehiclesController extends Controller
             'fuel' => $request->fuel,
             'model_year' => $request->model_year,
             'image' => $filename
-            ]
-        );
-
-        return response()->json($vehicle);
+        ];
+        Vehicle::create($vehData);
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     // FETCH ALL AJAX REQUEST
@@ -56,7 +56,7 @@ class VehiclesController extends Controller
         // <td>'.$vehicle->id.'</td>
         $output = '';
         if ($vehicles->count() > 0) {
-            $output .= '<table id="showAll" class="table table-striped table-sm text-center align-middle" >
+            $output .= '<table #"showAll" class="veh-table table table-striped table-sm text-center align-middle" >
                 <thead>
                     <tr>
 
@@ -83,7 +83,7 @@ class VehiclesController extends Controller
                     <td>'.$vehicle->fuel.'</td>
                     <td>'.$vehicle->model_year.'</td>
                     <td>
-                        <a href="#" id="' . $vehicle->id . '" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="editVehicleModal"><i class="bi-pencil-square h4"></i></a>
+                        <a href="/edit" id="' . $vehicle->id . '" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="#editVehicleModal"><i class="bi-pencil-square h4"></i></a>
 
                         <a href="#" id="' . $vehicle->id .'" class="text-danger mx-1 delete-icon"><i class-"bi-trash h4"></i></a>
                     </td>
