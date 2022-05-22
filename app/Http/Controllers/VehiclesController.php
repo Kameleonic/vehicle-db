@@ -51,12 +51,12 @@ class VehiclesController extends Controller
 
     public function fetchAll()
     {
-        $vehicles = Vehicle::paginate(10); //Could be model or controller...
+        $vehicles = Vehicle::all(); //Could be model or controller...
         // <th class="tbl-head">ID</th>
         // <td>'.$vehicle->id.'</td>
         $output = '';
         if ($vehicles->count() > 0) {
-            $output .= '<table class="table table-striped table-sm text-center align-middle" >
+            $output .= '<table id="showAll" class="table table-striped table-sm text-center align-middle" >
                 <thead>
                     <tr>
 
@@ -83,9 +83,9 @@ class VehiclesController extends Controller
                     <td>'.$vehicle->fuel.'</td>
                     <td>'.$vehicle->model_year.'</td>
                     <td>
-                        <a href="#" id="'.$vehicle->id.'" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="editVehicleModal"><i class="bi-pencil-square h4"></i></a>
+                        <a href="#" id="' . $vehicle->id . '" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="editVehicleModal"><i class="bi-pencil-square h4"></i></a>
 
-                        <a href="#" id="'.$vehicle->id.'" class="text-danger mx-1 delete-icon"><i class-"bi-trash h4"></i></a>
+                        <a href="#" id="' . $vehicle->id .'" class="text-danger mx-1 delete-icon"><i class-"bi-trash h4"></i></a>
                     </td>
                 </tr>';
             }
