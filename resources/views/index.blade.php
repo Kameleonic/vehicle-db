@@ -389,6 +389,7 @@
                     });
                 })
 
+
                 // SHOW ALL VEHICLES AJAX REQUEST
                 fetchAllVehicles();
                 function fetchAllVehicles(){
@@ -403,32 +404,54 @@
                         }
                     });
                 }
+
+                // UPDATE AJAX REQUEST
+                $("#edit_vehicle_form").submit(function(e){
+                    e.preventDefault();
+                    const fd = new FormData(this);
+                    $("#edit_vehicle_btn").text('Updating...');
+                    $.ajax({
+                        url: '{{ route('update') }}',
+                        method: 'POST',
+                        data: fd,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        success: function(res) {
+                            console.log(res);
+                        }
+                    })
+                })
+
                 // edit employee ajax request
                 $(document).on('click', '.editIcon', function(e) {
-                e.preventDefault();
-                let id = $(this).attr('id');
-                $.ajax({
-                    url: '{{ route('edit') }}',
-                    method: 'get',
-                    data: {
-                    id: id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    $("#fname").val(response.first_name);
-                    $("#lname").val(response.last_name);
-                    $("#email").val(response.email);
-                    $("#phone").val(response.phone);
-                    $("#post").val(response.post);
-                    $("#avatar").html(
-                    `<img src="storage/images/${response.avatar}" width="100"       class="img-fluid img-thumbnail">`);
-                    $("#emp_id").val(response.id);
-                    $("#emp_avatar").val(response.avatar);
-                }
+                    e.preventDefault();
+                    let id = $(this).attr('id');
+                    $.ajax({
+                        url: '{{ route('edit') }}',
+                        method: 'GET',
+                        data: {
+                        id: id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        $("#id").val(response.id);
+                        $("#make").val(response.make);
+                        $("#model_name").val(response.model_name);
+                        $("#version").val(response.version);
+                        $("#powertrain").val(response.powertrain);
+                        $("#trans").val(response.trans);
+                        $("#fuel").val(response.fuel);
+                        $("#model_year").val(response.model_year);
+                        $("#image").html(
+                        `<img src="storage/images/${response.image}" width="100"       class="img-fluid img-thumbnail">`);
+                    }
+                    });
                 });
-            });
 
-            });
+
+
+        });
         </script>
     </body>
 </html>

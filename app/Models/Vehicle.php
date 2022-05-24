@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    use HasFactory; /**  Name of columns fillable */
+    use HasFactory;
     protected $table = 'vehicles';
     protected $fillable = [
         'make',
@@ -20,4 +20,4 @@ class Vehicle extends Model
         'image'
 
     ];
-};
+}

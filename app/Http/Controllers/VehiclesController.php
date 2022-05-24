@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Facades\Storage;
 use App\Models\Vehicle;
 use Illuminate\Http\Controllers;
 use Illuminate\Database\Migrations\CreateVehiclesTable;
@@ -15,7 +16,16 @@ class VehiclesController extends Controller
         return view('index');
     }
 
-    /** Handle insert */
+    /**
+     *  -----------------
+     *  Vehicle Functions
+     *  -----------------
+     * store, edit, delete,
+     * fetchall, etc...
+     *
+     * $request - Request data from a database.
+     * $vehData - Data generated from user to be stored.
+     */
 
     public function store(Request $request)
     {
@@ -30,7 +40,7 @@ class VehiclesController extends Controller
 
 
 
-        // handle insert vehicle ajax request
+        // INSERT VEHICLE AJEX REQUEST
         $vehData = [
             'make' => $request->make,
             'model_name' => $request->model_name,
@@ -42,17 +52,16 @@ class VehiclesController extends Controller
             'image' => $filename
         ];
         Vehicle::create($vehData);
-        return response()->json([
-            'status' => 200,
-        ]);
+        return response()->json(
+            ['status' => 200,]
+        );
     }
 
     // FETCH ALL AJAX REQUEST
-
     public function fetchAll()
     {
         $vehicles = Vehicle::all(); //Could be model or controller...
-        
+
         $output = '';
         if ($vehicles->count() > 0) {
             $output .= '<table #"showAll" class="veh-table table table-striped table-sm text-center align-middle" >
@@ -67,7 +76,7 @@ class VehiclesController extends Controller
                         <th class="tbl-head">Transmission</th>
                         <th class="tbl-head">Fuel Type</th>
                         <th class="tbl-head">Model Year</th>
-                        <th class="tbl-head"><i class="bi-gear-fill h4"></i></th>
+                        <th class="tbl-head"><i class="bi-gear-fill h5"></i></th>
                     </tr>
                 </thead>
                 <tbody>';
@@ -94,6 +103,44 @@ class VehiclesController extends Controller
         } else {
             echo '<h1 class="text-center text-secondary my-5">No vehicles in the database!</h1>';
         }
+    }
+
+    // HANDLE EDIT REQUEST FOR VEHICLES
+    public function edit(Request $request)
+    {
+        $id = $request->id;
+        $veh = Vehicle::find($id);
+        return response()->json($veh);
+    }
+
+    // UPDATE VEHICLE
+    public function update(Request $request)
+    {
+        $fileName = '';
+        $veh = Vehicle::findOrFail($request->id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '.' .$file->getClientOriginalExtension();
+            $file->storeAs('public/images', $fileName);
+            if ($veh->image) {
+                Storage::delete('public/images/' . $veh->image);
+            }
+        } else {
+            $fileName = $request->image;
+        }
+        $vehData = [
+            'id' => $request->id,
+            'make' => $request->make,
+            'model_name' => $request->model_name,
+            'version' => $request->version,
+            'powertrain' => $request->powertrain,
+            'trans' => $request->trans,
+            'fuel' => $request->make,
+            'model_year' => $request->model_year,
+            'image' => $request->image
+        ];
+        $veh->update($vehData);
+        return response()->json('status');
     }
 
     public function time($time)
