@@ -391,19 +391,21 @@
 
 
                 // SHOW ALL VEHICLES AJAX REQUEST
-                fetchAllVehicles();
+
                 function fetchAllVehicles(){
                     $.ajax({
                         url: '{{route('fetchAll')}}',
                         method: 'GET',
                         success: function(res){
                             $("#show_all_vehicles").html(res);
-                            $("#showAll").DataTable({
-                                order: [ 0, "desc" ]
+                            $('#table').DataTable({
+                                order: "desc",
+                                dom: "rftip"
                             });
                         }
                     });
                 }
+                fetchAllVehicles();
 
                 // UPDATE AJAX REQUEST
                 $("#edit_vehicle_form").submit(function(e){
@@ -416,6 +418,7 @@
                         data: fd,
                         cache: false,
                         processData: false,
+                        serverSide: false,
                         contentType: false,
                         success: function(res) {
                             console.log(res);
@@ -433,19 +436,19 @@
                         data: {
                         id: id,
                         _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        $("#id").val(response.id);
-                        $("#make").val(response.make);
-                        $("#model_name").val(response.model_name);
-                        $("#version").val(response.version);
-                        $("#powertrain").val(response.powertrain);
-                        $("#trans").val(response.trans);
-                        $("#fuel").val(response.fuel);
-                        $("#model_year").val(response.model_year);
-                        $("#image").html(
-                        `<img src="storage/images/${response.image}" width="100"       class="img-fluid img-thumbnail">`);
-                    }
+                        },
+                        success: function(response) {
+                            $("#id").val(response.id);
+                            $("#make").val(response.make);
+                            $("#model_name").val(response.model_name);
+                            $("#version").val(response.version);
+                            $("#powertrain").val(response.powertrain);
+                            $("#trans").val(response.trans);
+                            $("#fuel").val(response.fuel);
+                            $("#model_year").val(response.model_year);
+                            $("#image").html(
+                            `<img src="storage/images/${response.image}"    width="100"       class="img-fluid img-thumbnail">`);
+                        }
                     });
                 });
 

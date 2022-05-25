@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Facades\Storage;
+use Illuminate\DataTable;
 use App\Models\Vehicle;
 use Illuminate\Http\Controllers;
 use Illuminate\Database\Migrations\CreateVehiclesTable;
@@ -64,7 +65,7 @@ class VehiclesController extends Controller
 
         $output = '';
         if ($vehicles->count() > 0) {
-            $output .= '<table #"showAll" class="veh-table table table-striped table-sm text-center align-middle" >
+            $output .= '<table id="table" class="table table-striped veh-table table-sm text-center align-middle" >
                 <thead>
                     <tr>
                         <th class="tbl-head">ID</th>
