@@ -1,29 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CRUD App Laravel 8 & Ajax</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
-        />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css"
-        />
-
-        <link rel="stylesheet" type="text/css" href="css/custom.css" />
-        <!-- CSRF Token -->
-
         <title>Vehicle Database</title>
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+        <!-- Cascading Stylesheets CSS -->
+        <link href="/css/app.css" rel="stylesheet" >
+        <link href="/css/custom.css" rel="stylesheet" >
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" >
+
+
     </head>
 
         <div class="pos-f-t">
@@ -347,17 +341,14 @@
                 </div>
             </div>
         </div>
-        @include('includes.footer')
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"
-        ></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-        <script>
-            $(function() {
+    @include('includes.footer')
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript" charset="utf8" src="/js/app.js"></script>
+        <script type="text/javascript" charset="utf8" src="/resources/js/bootstrap.js"></script>
+        <script>
                 // ADD NEW VEHICLE AJAX REQUEST
                 $("#add_vehicle_form").submit(function (e) {
                     e.preventDefault();
@@ -388,20 +379,26 @@
                         }
                     });
                 })
-
-
                 // SHOW ALL VEHICLES AJAX REQUEST
 
+                // function fetchAllVehicles(){
+                //     $.ajax({
+                //         url: '{{route('fetchAll')}}',
+                //         method: 'GET',
+                //         success: function(res){
+                //             $("#show_all_vehicles").html(res);
+                //             $("#datatable").DataTable()
+                //             ;
+                //         }
+                //     });
+                // }
                 function fetchAllVehicles(){
                     $.ajax({
                         url: '{{route('fetchAll')}}',
                         method: 'GET',
                         success: function(res){
                             $("#show_all_vehicles").html(res);
-                            $('#table').DataTable({
-                                order: "desc",
-                                dom: "rftip"
-                            });
+                            $("#datatable").DataTable();
                         }
                     });
                 }
@@ -425,7 +422,6 @@
                         }
                     })
                 })
-
                 // edit employee ajax request
                 $(document).on('click', '.editIcon', function(e) {
                     e.preventDefault();
@@ -451,10 +447,12 @@
                         }
                     });
                 });
-
-
-
-        });
         </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/fh-3.2.3/datatables.min.js"></script>
+
     </body>
 </html>

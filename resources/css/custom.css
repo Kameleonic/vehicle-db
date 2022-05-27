@@ -1,0 +1,212 @@
+/* @font-face {
+    font-family: "Roboto" !important;
+    src: url("./fonts/Roboto-Black.ttf") format("ttf");
+} */
+:root {
+    --brand-blue: rgba(31, 16, 61, 0.85);
+}
+
+body {
+    /* height: 100vh; */ /* For filling the scrollable window height 100%*/
+    /* font-family: "Roboto" !important; */
+    background-size: contain !important;
+    background-repeat: repeat-y !important;
+    background: #b993d6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #8ca6db,
+        #b993d6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #8ca6db,
+        #b993d6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#nav-date {
+    //
+}
+
+.nav {
+    display: block;
+}
+
+.logo-hdr {
+    height: 72px;
+    width: 250px;
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
+    z-index: 1;
+    transform: translateY(-10px) !important;
+}
+
+.nav-logo {
+}
+
+li {
+    display: inline;
+    margin: 0 10px 0 10px;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    line-height: 1.75;
+}
+
+.tbl {
+    max-height: 48px !important;
+    height: 48px !important;
+    font-weight: 500;
+}
+/* .exp_tbl:target {
+    max-height: 125px !important;
+    height: 125px !important;
+} */
+
+.tbl-head {
+    color: var(--brand-blue) !important;
+}
+
+.tbl-ttl {
+    color: var(--brand-blue);
+}
+
+.bg-primary {
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+.btn-dark {
+    border: 2px solid rgba(50, 26, 97, 0.85);
+    color: #00f2fe;
+
+    background-color: rgb(118, 134, 152);
+}
+.btn-dark:hover {
+    background-color: rgb(110, 131, 157);
+}
+.btn-dark:focus {
+    background-color: rgb(160, 172, 187);
+}
+
+.text-grey {
+    color: rgb(63, 63, 63);
+}
+.border-dark {
+    border-color: rgba(80, 66, 171, 0.702) !important;
+}
+.btn-border-dark {
+    border-color: rgba(0, 0, 0, 0.226) !important;
+}
+
+.card {
+    border-radius: 7px;
+    border: 3px solid var(--brand-blue) !important;
+    margin-bottom: 3rem;
+}
+
+.card-body {
+    border-radius: 0 0 3px 3px;
+    /* border: 5px solid rgba(31, 16, 61, 0.407) !important; */
+    background-color: rgb(193, 206, 255, 0.5) !important;
+}
+.card-header {
+    padding-top: 1rem;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+}
+
+.footer {
+    width: 100vw;
+    height: 3rem;
+    font-size: 0.75rem !important;
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid var(--brand-blue) !important;
+}
+
+.footer-text {
+    margin-top: 5px;
+    font-size: 0.75rem !important;
+}
+
+.ftr-button {
+    color: var(--brand-blue);
+}
+
+.ftr-xpand {
+    font-size: large;
+    font-weight: 500;
+    transform: translate(20vw, -40px) !important;
+    color: var(--brand-blue);
+    transform: scale(2, 2);
+}
+
+#ftr-border {
+    display: flex;
+    width: 100vw !important;
+    height: 3px;
+    background-color: var(--brand-blue);
+}
+
+.thick-border {
+    border: 2px solid black !important;
+}
+
+.new-shad {
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.navbar {
+    border-bottom: 3px solid rgba(31, 16, 61, 0.85) !important;
+}
+
+.ml-2 {
+    margin-left: 20px;
+}
+
+.img-thumbnail {
+    justify-items: center;
+    max-width: 100px;
+    width: auto;
+
+    max-height: 48px;
+    border: none !important;
+    background-color: transparent !important;
+    /* border: 2px solid rgba(80, 66, 171, 0.702);
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important; */
+}
+.rounded-circle {
+    border-radius: 10px !important;
+}
+
+.table {
+    border-width: 3px !important;
+    border-color: rgba(80, 66, 171, 0.702);
+}
+
+.modal-body {
+    background-color: rgba(193, 206, 255, 0.5) !important;
+}
+
+.wd-90 {
+    width: 90vw;
+}
