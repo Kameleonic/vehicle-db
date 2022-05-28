@@ -65,7 +65,7 @@ class VehiclesController extends Controller
 
         $output = '';
         if ($vehicles->count() > 0) {
-            $output .= '<table id="datatable" class="table" >
+            $output .= '<table id="datatable" class="table table-striped" >
                 <thead>
                     <tr>
                         <th class="tbl-head">ID</th>

@@ -1,39 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vehicle Database</title>
+@include('layouts.head')
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <div class="pos-fnpm run hot-t header" >
 
-        <!-- Cascading Stylesheets CSS -->
-        <link href="/css/app.css" rel="stylesheet" >
-        <link href="/css/custom.css" rel="stylesheet" >
+            @include('includes.header')
 
-        <!-- Bootstrap Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" >
-
-
-    </head>
-
-        <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4">
-                    <h4 class="text-white">Collapsed content</h4>
-                    <span class="text-muted"
-                        >Toggleable via the navbar brand.</span
-                    >
-                </div>
-            </div>
-            <header
-                class="navbar navbar-light justify-content-center bg-primary p-2"
-            >
-                @include('includes.header')
-            </header>
         </div>
         {{-- add new vehicle modal start --}}
         <div
@@ -344,10 +316,8 @@
     @include('includes.footer')
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript" charset="utf8" src="/js/app.js"></script>
-        <script type="text/javascript" charset="utf8" src="/resources/js/bootstrap.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
                 // ADD NEW VEHICLE AJAX REQUEST
                 $("#add_vehicle_form").submit(function (e) {

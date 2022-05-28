@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<div class="d-flex wd-90 justify-content-between">
+<header class="navbar navbar-light justify-content-center bg-primary p-2" >
+    <div class="d-flex wd-90 justify-content-between">
     <img src="/storage/assets/logo-brand.png" class="logo-hdr nav-logo"/>
 
     <nav class="nav-menu">
@@ -13,4 +14,5 @@
     </nav>
 
 </div>
+</header>
 </html>

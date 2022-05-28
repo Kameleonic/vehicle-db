@@ -4,6 +4,9 @@
 } */
 :root {
     --brand-blue: rgba(31, 16, 61, 0.85);
+    --table-items: rgba(0, 0, 255, 0.849);
+    --table-items-40: rgba(0, 0, 255, 0.468);
+    --bs-pagination-active-border-color: red !important;
 }
 
 body {
@@ -22,10 +25,6 @@ body {
         #8ca6db,
         #b993d6
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-#nav-date {
-    //
 }
 
 .nav {
@@ -183,24 +182,45 @@ h6 {
     margin-left: 20px;
 }
 
+@media (min-width: 576px) {
+    .img-thumbnail {
+        justify-items: center;
+        max-width: 100px;
+        width: auto;
+
+        max-height: 48px;
+        border: none !important;
+        background-color: transparent !important;
+        /* border: 2px solid rgba(80, 66, 171, 0.702);
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important; */
+    }
+}
+
 .img-thumbnail {
     justify-items: center;
     max-width: 100px;
     width: auto;
 
-    max-height: 48px;
+    max-height: 30px;
     border: none !important;
     background-color: transparent !important;
     /* border: 2px solid rgba(80, 66, 171, 0.702);
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important; */
+box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important; */
 }
+
 .rounded-circle {
     border-radius: 10px !important;
 }
 
 .table {
+    font-size: 10px !important;
     border-width: 3px !important;
     border-color: rgba(80, 66, 171, 0.702);
+}
+@media (min-width: 700px) {
+    .table {
+        font-size: 14px !important;
+    }
 }
 
 .modal-body {
