@@ -153,7 +153,7 @@
         >
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-primary">
                         <h5 class="modal-title" id="exampleModalLabel">
                             Edit Vehicle
                         </h5>
@@ -263,7 +263,7 @@
                             </div>
                             <div class="mt-2" id="image"></div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer bg-primary">
                             <button
                                 type="button"
                                 class="btn btn-secondary"
@@ -319,6 +319,7 @@
         <script type="text/javascript" charset="utf8" src="/js/app.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
+            $(function() {
                 // ADD NEW VEHICLE AJAX REQUEST
                 $("#add_vehicle_form").submit(function (e) {
                     e.preventDefault();
@@ -362,36 +363,9 @@
                 //         }
                 //     });
                 // }
-                function fetchAllVehicles(){
-                    $.ajax({
-                        url: '{{route('fetchAll')}}',
-                        method: 'GET',
-                        success: function(res){
-                            $("#show_all_vehicles").html(res);
-                            $("#datatable").DataTable();
-                        }
-                    });
-                }
-                fetchAllVehicles();
 
-                // UPDATE AJAX REQUEST
-                $("#edit_vehicle_form").submit(function(e){
-                    e.preventDefault();
-                    const fd = new FormData(this);
-                    $("#edit_vehicle_btn").text('Updating...');
-                    $.ajax({
-                        url: '{{ route('update') }}',
-                        method: 'POST',
-                        data: fd,
-                        cache: false,
-                        processData: false,
-                        serverSide: false,
-                        contentType: false,
-                        success: function(res) {
-                            console.log(res);
-                        }
-                    })
-                })
+
+
                 // edit employee ajax request
                 $(document).on('click', '.editIcon', function(e) {
                     e.preventDefault();
@@ -413,10 +387,50 @@
                             $("#fuel").val(response.fuel);
                             $("#model_year").val(response.model_year);
                             $("#image").html(
-                            `<img src="storage/images/${response.image}"    width="100"       class="img-fluid img-thumbnail">`);
+                            `<img src="storage/images/${response.image}"    width="100" class="img-fluid img-thumbnail">`);
                         }
                     });
                 });
+                // UPDATE AJAX REQUEST
+                $("#edit_vehicle_form").submit(function(e){
+                    e.preventDefault();
+                    const fd = new FormData(this);
+                    $("#edit_vehicle_btn").text('Updating...');
+                    $.ajax({
+                        url: '{{ route('update') }}',
+                        method: 'POST',
+                        data: fd,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        dataType: 'json',
+                        success: function(res) {
+
+                            console.log(res)
+
+
+                        $("#edit_vehicle_btn").text('Update Vehicle');
+                        $("#edit_vehicle_form")[0].reset();
+                        $("#editVehicleModal").modal('hide');
+                        fetchAllVehicles();
+                        }
+
+                    });
+                });
+
+                fetchAllVehicles();
+
+                function fetchAllVehicles(){
+                    $.ajax({
+                        url: '{{route('fetchAll')}}',
+                        method: 'GET',
+                        success: function(res){
+                            $("#show_all_vehicles").html(res);
+                            $("#datatable").DataTable();
+                        }
+                    });
+                };
+            });
         </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 

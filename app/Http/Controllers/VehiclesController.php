@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Facades\Storage;
-use App\DataTables;
-use App\Models\Vehicle;
-use Illuminate\Http\Controllers;
-use Illuminate\Database\Migrations\CreateVehiclesTable;
+use Illuminate\Support\Facades\Storage;
 
 class VehiclesController extends Controller
 {
@@ -93,7 +90,7 @@ class VehiclesController extends Controller
                     <td>'.$vehicle->fuel.'</td>
                     <td>'.$vehicle->model_year.'</td>
                     <td>
-                        <a href="/edit" id="' . $vehicle->id . '" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="#editVehicleModal"><i class="bi-pencil-square h6"></i></a>
+                        <a href="#" id="' . $vehicle->id . '" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="#editVehicleModal"><i class="bi-pencil-square h6"></i></a>
 
                         <a href="#" id="' . $vehicle->id .'" class="text-danger mx-1 delete-icon"><i class="bi-trash h6"></i></a>
                     </td>
@@ -118,13 +115,13 @@ class VehiclesController extends Controller
     public function update(Request $request)
     {
         $fileName = '';
-        $veh = Vehicle::findOrFail($request->id);
+        $veh = Vehicle::find($request->primaryKey);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '.' .$file->getClientOriginalExtension();
             $file->storeAs('public/images', $fileName);
             if ($veh->image) {
-                Storage::delete('public/images/' . $veh->image);
+                Vehicle::destroy('public/images/' . $veh->image);
             }
         } else {
             $fileName = $request->image;
@@ -138,10 +135,22 @@ class VehiclesController extends Controller
             'trans' => $request->trans,
             'fuel' => $request->make,
             'model_year' => $request->model_year,
-            'image' => $request->image
+            'image' => $fileName
         ];
-        $veh->update($vehData);
-        return response()->json('status');
+        $veh -> update($vehData);
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
+    // handle delete an employee ajax request
+    public function delete(Request $request)
+    {
+        $id = $request->id;
+        $emp = Vehicle::find($id);
+        if (Storage::delete('public/images/' . $emp->image)) {
+            Vehicle::destroy($id);
+        }
     }
 
     public function time($time)

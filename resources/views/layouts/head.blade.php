@@ -11,8 +11,7 @@
         <!-- Cascading Stylesheets CSS -->
         <link href="/css/app.css" rel="stylesheet" >
         <link href="/css/custom.css" rel="stylesheet" >
-
-
+        <link href="/fonts/***.ttf">
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" >
     </head>
