@@ -115,7 +115,7 @@ class VehiclesController extends Controller
     public function update(Request $request)
     {
         $fileName = '';
-        $veh = Vehicle::find($request->primaryKey);
+        $veh = Vehicle::find($request->id);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
@@ -127,20 +127,20 @@ class VehiclesController extends Controller
             $fileName = $request->image;
         }
         $vehData = [
-            'id' => $request->id,
             'make' => $request->make,
             'model_name' => $request->model_name,
             'version' => $request->version,
             'powertrain' => $request->powertrain,
             'trans' => $request->trans,
             'fuel' => $request->make,
-            'model_year' => $request->model_year,
-            'image' => $fileName
+            'model_year' => $request->model_year
         ];
-        $veh->update($vehData);
-        return response()->json([
-            'status' => 'success',
-        ]);
+        dd($vehData);
+        $veh->update($veh);
+        return response()->json(
+            ['status' => 200,]
+
+        );
     }
 
     // handle delete an employee ajax request
@@ -156,5 +156,6 @@ class VehiclesController extends Controller
     public function time($time)
     {
         $time->Carbon::now();
+        dd($time);
     }
 }
