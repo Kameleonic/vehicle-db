@@ -33,7 +33,7 @@ class VehiclesController extends Controller
 
 
         $file = $request->file('image');
-        $filename = time(). '.' .$file->getClientOriginalExtension();
+        $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/images', $filename);
 
 
@@ -80,19 +80,19 @@ class VehiclesController extends Controller
                 <tbody>';
             foreach ($vehicles as $vehicle) {
                 $output .= '<tr class="tbl exp_tbl">
-                    <td>'.$vehicle->id.'</td>
-                    <td><img src="./storage/images/'.$vehicle->image.'"  class="img-thumbnail justify-content-sm-center"></td>
-                    <td>'.$vehicle->make.'</td>
-                    <td>'.$vehicle->model_name.'</td>
-                    <td>'.$vehicle->version.'</td>
-                    <td>'.$vehicle->powertrain.'</td>
-                    <td>'.$vehicle->trans.'</td>
-                    <td>'.$vehicle->fuel.'</td>
-                    <td>'.$vehicle->model_year.'</td>
+                    <td>' . $vehicle->id . '</td>
+                    <td><img src="./storage/images/' . $vehicle->image . '"  class="img-thumbnail justify-content-sm-center"></td>
+                    <td>' . $vehicle->make . '</td>
+                    <td>' . $vehicle->model_name . '</td>
+                    <td>' . $vehicle->version . '</td>
+                    <td>' . $vehicle->powertrain . '</td>
+                    <td>' . $vehicle->trans . '</td>
+                    <td>' . $vehicle->fuel . '</td>
+                    <td>' . $vehicle->model_year . '</td>
                     <td>
                         <a href="#" id="' . $vehicle->id . '" class="text-success mx-2 editIcon" data-bs-toggle="modal" data-bs-target="#editVehicleModal"><i class="bi-pencil-square h6"></i></a>
 
-                        <a href="#" id="' . $vehicle->id .'" class="text-danger mx-1 delete-icon"><i class="bi-trash h6"></i></a>
+                        <a href="#" id="' . $vehicle->id . '" class="text-danger mx-1 delete-icon"><i class="bi-trash h6"></i></a>
                     </td>
                 </tr>';
             }
@@ -118,7 +118,7 @@ class VehiclesController extends Controller
         $veh = Vehicle::find($request->primaryKey);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $fileName = time() . '.' .$file->getClientOriginalExtension();
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/images', $fileName);
             if ($veh->image) {
                 Vehicle::destroy('public/images/' . $veh->image);
@@ -137,9 +137,9 @@ class VehiclesController extends Controller
             'model_year' => $request->model_year,
             'image' => $fileName
         ];
-        $veh -> update($vehData);
+        $veh->update($vehData);
         return response()->json([
-            'status' => 200,
+            'status' => 'success',
         ]);
     }
 
