@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/* Routes for Vehicle Database.
+    * Store - // POST new database entry.
+    * Edit - // GET mySQL row data for modal.
+    * Update - // POST updated mySQL data.
+    * FetchAll - // GET all vehicles for datatable.
+*/
 Route::controller(VehiclesController::class)->group(
     function () {
         Route::get('/', 'index');

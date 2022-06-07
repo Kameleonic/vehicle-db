@@ -115,31 +115,24 @@ class VehiclesController extends Controller
     public function update(Request $request)
     {
         $fileName = '';
-        $veh = Vehicle::find($request->id);
+        $veh = Vehicle::find($request->veh_id);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/images', $fileName);
             if ($veh->image) {
-                Vehicle::destroy('public/images/' . $veh->image);
+                Storage::delete('public/images/' . $veh->image);
             }
         } else {
-            $fileName = $request->image;
+            $fileName = $request->veh_image;
         }
-        $vehData = [
-            'make' => $request->make,
-            'model_name' => $request->model_name,
-            'version' => $request->version,
-            'powertrain' => $request->powertrain,
-            'trans' => $request->trans,
-            'fuel' => $request->make,
-            'model_year' => $request->model_year
-        ];
-        dd($veh);
+        $vehData = ['make' => $request->make, 'model_name' => $request->model_name, 'version' => $request->version, 'powertrain' => $request->powertrain, 'trans' => $request->trans, 'fuel' => $request->make, 'model_year' => $request->model_year];
+        dd($vehData);
         $veh->update($vehData);
         return response()->json(
-            ['status' => 200,]
-
+            [
+                'status' => 200,
+            ]
         );
     }
 
