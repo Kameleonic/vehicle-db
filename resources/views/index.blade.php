@@ -190,7 +190,7 @@
                                     <label for="model_name">Model</label>
                                     <input
                                         type="text"
-                                        name="model-name"
+                                        name="model_name"
                                         id="model_name"
                                         class="form-control"
                                         placeholder="Model Name"
@@ -264,18 +264,10 @@
                             <div class="mt-2" id="image"></div>
                         </div>
                         <div class="modal-footer bg-primary">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                            >
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Close
                             </button>
-                            <button
-                                type="submit"
-                                id="edit_vehicle_btn"
-                                class="btn btn-success"
-                            >
+                            <button type="submit" id="edit_vehicle_btn" class="btn btn-success">
                                 Update Vehicle
                             </button>
                         </div>

@@ -135,8 +135,8 @@ class VehiclesController extends Controller
             'fuel' => $request->make,
             'model_year' => $request->model_year
         ];
-        dd($vehData);
-        $veh->update($veh);
+        dd($veh);
+        $veh->update($vehData);
         return response()->json(
             ['status' => 200,]
 
