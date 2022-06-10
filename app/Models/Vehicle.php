@@ -15,7 +15,8 @@ class Vehicle extends Model
         'powertrain',
         'trans',
         'fuel',
-        'model_year'
+        'model_year',
+        'image'
 
     ];
 }

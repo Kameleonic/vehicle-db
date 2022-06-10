@@ -34,7 +34,7 @@ class VehiclesController extends Controller
 
         $file = $request->file('image');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/images', $filename);
+        $file->storeAs('storage/images/', $filename);
 
 
 
@@ -81,7 +81,7 @@ class VehiclesController extends Controller
             foreach ($vehicles as $vehicle) {
                 $output .= '<tr class="tbl exp_tbl">
                     <td>' . $vehicle->id . '</td>
-                    <td><img src="./storage/images/' . $vehicle->image . '"  class="img-thumbnail justify-content-sm-center"></td>
+                    <td><img src="./assets/images/' . $vehicle->image . '"  class="img-thumbnail justify-content-sm-center"></td>
                     <td>' . $vehicle->make . '</td>
                     <td>' . $vehicle->model_name . '</td>
                     <td>' . $vehicle->version . '</td>

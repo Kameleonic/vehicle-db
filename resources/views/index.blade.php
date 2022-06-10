@@ -244,7 +244,7 @@
                         $("#fuel").val(response.fuel);
                         $("#model_year").val(response.model_year);
                         $("#image").html(
-                            `<img src="storage/images/${response.image}"    width="100" class="img-fluid img-thumbnail">`
+                            `<img src="./storage/images/${response.image}"    width="100" class="img-fluid img-thumbnail">`
                         );
                         $("#veh_id").val(response.id);
                         $("#veh_image").val(response.image);
@@ -289,6 +289,7 @@
                     success: function(res) {
                         $("#show_all_vehicles").html(res);
                         $("#datatable").DataTable();
+                        console.log(res);
                     }
                 });
             };
