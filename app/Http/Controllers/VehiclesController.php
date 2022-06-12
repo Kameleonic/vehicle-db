@@ -34,7 +34,7 @@ class VehiclesController extends Controller
 
         $file = $request->file('image');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs('./assets/images/', $filename);
+        $file->storeAs('images/', $filename);
 
 
 
@@ -81,7 +81,7 @@ class VehiclesController extends Controller
             foreach ($vehicles as $vehicle) {
                 $output .= '<tr class="tbl exp_tbl">
                     <td>' . $vehicle->id . '</td>
-                    <td><img src="./assets/images/' . $vehicle->image . '"  class="img-thumbnail justify-content-sm-center"></td>
+                    <td><img src="images/' . $vehicle->image . '"  class="img-thumbnail justify-content-sm-center"></td>
                     <td>' . $vehicle->make . '</td>
                     <td>' . $vehicle->model_name . '</td>
                     <td>' . $vehicle->version . '</td>
@@ -119,17 +119,27 @@ class VehiclesController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('./assets/images/', $fileName);
+            $file->storeAs('images/', $fileName);
             if ($veh->image) {
-                Storage::delete('./assets/images/' . $veh->veh_image);
+                Storage::delete('images/' . $veh->veh_image);
                 dd(veh_image);
             }
         } else {
             $fileName = $request->image;
         }
-        $vehData = ['make' => $request->make, 'model_name' => $request->model_name, 'version' => $request->version, 'powertrain' => $request->powertrain, 'trans' => $request->trans, 'fuel' => $request->make, 'model_year' => $request->model_year];
+        $vehData =
+            [
+                'id' => $request->id,
+                'make' => $request->make,
+                'model_name' => $request->model_name,
+                'version' => $request->version,
+                'powertrain' => $request->powertrain,
+                'trans' => $request->trans,
+                'fuel' => $request->make,
+                'model_year' => $request->model_year
+            ];
 
-        $veh->update($vehData);
+        $veh->where($vehData);
         return response()->json(
             [
                 'status' => 200,
@@ -142,7 +152,7 @@ class VehiclesController extends Controller
     {
         $id = $request->id;
         $emp = Vehicle::find($id);
-        if (Storage::delete('./assets/images/' . $emp->image)) {
+        if (Storage::delete('images/' . $emp->image)) {
             Vehicle::destroy($id);
         }
     }

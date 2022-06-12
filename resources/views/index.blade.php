@@ -176,6 +176,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="/js/app.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     <script>
         $(function() {
             // ADD NEW VEHICLE AJAX REQUEST
@@ -235,6 +242,7 @@
                         id: id,
                         _token: '{{ csrf_token() }}'
                     },
+                    dataType: 'json',
                     success: function(response) {
                         $("#make").val(response.make);
                         $("#model_name").val(response.model_name);
@@ -244,7 +252,7 @@
                         $("#fuel").val(response.fuel);
                         $("#model_year").val(response.model_year);
                         $("#image").html(
-                            `<img src="./storage/images/${response.image}"    width="100" class="img-fluid img-thumbnail">`
+                            `<img src="images/${response.image}"    width="100" class="img-fluid img-thumbnail">`
                         );
                         $("#veh_id").val(response.id);
                         $("#veh_image").val(response.image);
@@ -254,18 +262,20 @@
             // UPDATE AJAX REQUEST
             $("#edit_vehicle_form").submit(function(e) {
                 e.preventDefault();
-                const fd = new FormData(this);
+                let fd = new FormData(this);
                 $("#edit_vehicle_btn").text('Updating...');
                 $.ajax({
                     url: '{{ route('update') }}',
-                    method: 'post',
-                    data: fd,
+                    method: 'PUT',
+                    data: {
+                        fd,
+                        _token: '{{ csrf_token() }}'
+                    },
                     cache: false,
                     contentType: false,
                     processData: false,
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.status == 200) {
+                    success: function(res) {
+                        if (res.status == 200) {
                             Swal.fire(
                                 'Updated!',
                                 'Vehicle Updated Successfully!',

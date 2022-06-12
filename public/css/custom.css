@@ -46,7 +46,7 @@
         justify-items: center;
         max-width: 100px;
         width: auto;
-
+        border-radius: 50%;
         max-height: 48px;
         border: none !important;
         background-color: transparent !important;
@@ -56,21 +56,16 @@
 }
 
 body {
-    /* height: 100vh; */ /* For filling the scrollable window height 100%*/
-    /* font-family: "Roboto" !important; */
-    background-size: contain !important;
-    background-repeat: repeat-y !important;
-    background: #b993d6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #8ca6db,
-        #b993d6
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #8ca6db,
-        #b993d6
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: contain;
+    height: 100vh;
+    background-image: linear-gradient(
+        to top,
+        #ffffff,
+        #fdfeff,
+        #fbfcff,
+        #f9fbff,
+        #f6faff
+    );
 }
 
 #nav-date {
@@ -140,7 +135,14 @@ h6 {
 }
 
 .bg-primary {
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    background-image: linear-gradient(
+        to right top,
+        #dadada,
+        #dedee0,
+        #e0e2e6,
+        #e3e6ec,
+        #e4eaf2
+    );
 }
 
 .btn-dark {
@@ -175,7 +177,14 @@ h6 {
 .card-body {
     border-radius: 0 0 3px 3px;
     /* border: 5px solid rgba(31, 16, 61, 0.407) !important; */
-    background-color: rgb(193, 206, 255, 0.5) !important;
+    background-image: linear-gradient(
+        to right top,
+        #e0e0e0,
+        #e4e4e6,
+        #e7e8ec,
+        #e9ecf2,
+        #ebf0f8
+    );
 }
 .card-header {
     padding-top: 1rem;
@@ -221,7 +230,7 @@ h6 {
 }
 
 .new-shad {
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.226) !important;
 }
 
 .navbar {
